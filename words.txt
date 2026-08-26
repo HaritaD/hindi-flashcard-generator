@@ -1,0 +1,866 @@
+क्या — what
+कौन — who
+क्यों — why
+कैसे — how
+कहाँ — where
+कब — when
+लोग — people
+आदमी — man/person
+बात — thing/matter/talk
+दिन — day
+समय — time
+साल — year
+घर — house/home
+नाम — name
+हाथ — hand
+देना — to give
+लेना — to take
+आना — to come
+कहना — to say/tell
+देखना — to see/look
+चाहिए — should/need
+अगर — if
+क्योंकि — because
+जैसे — like/as
+ऐसे — like this
+ऐसा — like this/such
+यहाँ — here
+वहाँ — there
+अच्छा — good/nice
+बड़ा — big/great
+छोटा — small
+नया — new
+पुराना — old
+सारा — whole/all
+दूसरा — second/other
+पहला — first
+बच्चा — child
+औरत — woman
+पानी — water
+काम — work/job
+जगह — place
+तरह — way/kind
+चीज़ — thing
+मन — mind/heart
+लगना — to seem/feel
+रहना — to stay/live
+पाना — to get/obtain
+बनाना — to make/build
+चाहना — to want
+जानना — to know
+सोचना — to think
+बोलना — to speak
+सुनना — to hear/listen
+पढ़ना — to read/study
+लिखना — to write
+खाना — to eat/food
+पीना — to drink
+सोना — to sleep/gold
+चलना — to walk/move
+मिलना — to meet/get
+समझना — to understand
+बैठना — to sit
+उठना — to get up/rise
+रखना — to keep/put
+माँ — mother
+पिता — father
+बेटा — son
+बेटी — daughter
+भाई — brother
+बहन — sister
+दोस्त — friend
+लड़का — boy
+लड़की — girl
+परिवार — family
+रात — night
+सुबह — morning
+शाम — evening
+आज — today
+कल — yesterday/tomorrow
+शहर — city
+देश — country
+रास्ता — road/way/path
+गाड़ी — car/vehicle
+किताब — book
+स्कूल — school
+पैसा — money
+मुँह — mouth
+आँख — eye
+सिर — head
+दिल — heart
+पैर — foot/leg
+दरवाज़ा — door
+भोजन — food/meal
+सवाल — question
+जवाब — answer/reply
+बुरा — bad
+सही — correct/right
+गलत — wrong
+सुंदर — beautiful
+लंबा — long/tall
+ठीक — okay/fine
+ज़्यादा — more/too much
+कम — less/few
+पूरा — full/complete
+आधा — half
+सच — truth/true
+मेरा — my/mine
+तेरा — your/yours
+हमारा — our/ours
+आपका — your/yours
+उनका — their/theirs
+इसका — its/of this
+उसका — his/her/its
+मुझे — to me/me
+तुझे — to you
+उसे — to him/her
+हमें — to us
+उन्हें — to them
+हाँ — yes
+ना — no
+अरे — hey/oh
+धन्यवाद — thank you
+नमस्ते — hello/greetings
+शरीर — body
+कान — ear
+नाक — nose
+बाल — hair
+दाँत — tooth
+गला — throat
+पेट — stomach/belly
+कमरा — room
+खिड़की — window
+मेज़ — table
+कुर्सी — chair
+बाज़ार — market
+के लिए — for
+के साथ — with
+के बाद — after
+के पास — near/with
+की तरह — like/similar to
+के बारे में — about/regarding
+के बिना — without
+के अंदर — inside
+के बाहर — outside
+के ऊपर — above/on top of
+के नीचे — below/under
+के सामने — in front of/opposite
+के बीच — between/among
+की वजह से — because of
+तरफ़ — side/direction
+पास — near
+दूर — far
+आगे — ahead/forward
+पीछे — behind/back
+ऊपर — up/above
+नीचे — down/below
+अंदर — inside
+बाहर — outside
+कभी — sometimes/ever
+हमेशा — always
+अभी — right now
+तभी — only then
+जल्दी — quickly/soon/early
+देर — late/delay
+शायद — maybe/perhaps
+ज़रूर — surely/definitely
+सिर्फ़ — only
+लगभग — approximately
+बिल्कुल — absolutely/exactly
+ख़ास — special
+आम — common/ordinary
+ख़ुद — oneself/self
+साफ़ — clean/clear
+गंदा — dirty
+गरम — hot/warm
+ठंडा — cold
+मीठा — sweet
+कड़वा — bitter
+भारी — heavy
+हल्का — light
+ऊँचा — high/tall
+नीचा — low
+चौड़ा — wide
+तंग — narrow/tight
+मोटा — fat/thick
+पतला — thin
+ख़ाली — empty
+तेज़ — fast/sharp/strong
+धीमा — slow
+सस्ता — cheap
+महँगा — expensive
+ज़रूरी — necessary/important
+मुश्किल — difficult
+आसान — easy
+ख़ुश — happy
+उदास — sad
+थका — tired
+व्यस्त — busy
+ताज़ा — fresh
+पक्का — firm/sure/ripe
+कच्चा — raw/unripe
+सच्चा — true/honest
+झूठा — false/lying
+सुखी — happy/content
+दुखी — unhappy/sorrowful
+ज़िंदा — alive
+मुर्दा — dead
+पहले — earlier/first/before
+बाद — after/later
+हफ़्ता — week
+महीना — month
+घंटा — hour
+मिनट — minute
+पल — moment
+वक़्त — time
+दोपहर — afternoon/noon
+तारीख़ — date
+मौसम — weather/season
+गर्मी — heat/summer
+सर्दी — cold/winter
+बारिश — rain
+धूप — sunshine
+हवा — wind/air
+आग — fire
+मिट्टी — soil/earth
+आसमान — sky
+धरती — earth/ground
+सूरज — sun
+चाँद — moon
+तारा — star
+समुंदर — sea/ocean
+नदी — river
+पहाड़ — mountain
+पेड़ — tree
+फूल — flower
+पत्ता — leaf
+फल — fruit
+जंगल — forest
+पत्थर — stone/rock
+ज़मीन — land/ground
+खेत — field/farm
+जानवर — animal
+कुत्ता — dog
+बिल्ली — cat
+गाय — cow
+घोड़ा — horse
+पक्षी — bird
+चिड़िया — bird/sparrow
+मछली — fish
+दूध — milk
+रोटी — bread/flatbread
+चावल — rice
+दाल — lentils
+सब्ज़ी — vegetable
+गोश्त — meat
+अंडा — egg
+नमक — salt
+चीनी — sugar
+चाय — tea
+तेल — oil
+कपड़ा — cloth/clothing
+जूता — shoe
+कमीज़ — shirt
+साड़ी — sari
+टोपी — cap/hat
+रंग — color
+लाल — red
+काला — black
+सफ़ेद — white
+हरा — green
+पीला — yellow
+नीला — blue
+भूरा — brown
+आवाज़ — voice/sound
+रोशनी — light
+अँधेरा — darkness
+शोर — noise
+ख़ुशबू — fragrance/scent
+स्वाद — taste/flavor
+डॉक्टर — doctor
+शिक्षक — teacher
+छात्र — student
+किसान — farmer
+मज़दूर — laborer/worker
+नौकर — servant/employee
+मालिक — owner/boss
+दुकानदार — shopkeeper
+नेता — leader
+राजा — king
+रानी — queen
+सैनिक — soldier
+पुलिस — police
+वकील — lawyer
+इंसान — human/person
+व्यक्ति — person/individual
+जनता — public/people
+समाज — society
+दुनिया — world
+सरकार — government
+दफ़्तर — office
+दुकान — shop/store
+अस्पताल — hospital
+गाँव — village
+मंदिर — temple
+मस्जिद — mosque
+सड़क — road/street
+गली — lane/alley
+पुल — bridge
+इमारत — building
+दीवार — wall
+छत — roof/ceiling
+फ़र्श — floor
+सीढ़ी — stairs/ladder
+रसोई — kitchen
+बिस्तर — bed
+चाबी — key
+ताला — lock
+बर्तन — utensil
+थाली — plate
+गिलास — glass
+चम्मच — spoon
+चाकू — knife
+बोतल — bottle
+डिब्बा — box/container
+थैला — bag
+कागज़ — paper
+क़लम — pen
+पेंसिल — pencil
+तस्वीर — picture/photo
+अख़बार — newspaper
+चिट्ठी — letter
+फ़ोन — phone
+मोबाइल — mobile phone
+कंप्यूटर — computer
+घड़ी — watch/clock
+बिजली — electricity
+टीवी — television
+रेडियो — radio
+बस — bus
+रेल — train/rail
+हवाई जहाज़ — airplane
+साइकिल — bicycle
+टिकट — ticket
+स्टेशन — station
+सफ़र — journey/travel
+यात्रा — journey/trip
+छुट्टी — holiday/vacation
+होटल — hotel
+सामान — luggage/goods/stuff
+दवा — medicine
+बीमारी — illness
+बीमार — sick
+दर्द — pain
+बुख़ार — fever
+सेहत — health
+स्वास्थ्य — health
+ख़ून — blood
+साँस — breath
+ताक़त — strength/power
+नींद — sleep
+भूख — hunger
+प्यास — thirst
+मौत — death
+ज़िंदगी — life
+जीवन — life
+जन्म — birth
+उम्र — age
+जवान — young/youth
+बूढ़ा — old person
+शादी — wedding/marriage
+पति — husband
+पत्नी — wife
+रिश्ता — relationship
+दादा — paternal grandfather
+दादी — paternal grandmother
+चाचा — paternal uncle
+मामा — maternal uncle
+बुआ — paternal aunt
+पड़ोसी — neighbor
+मेहमान — guest
+दुश्मन — enemy
+साथी — companion/partner
+पहचान — identity/recognition
+मुद्दा — issue/topic
+परेशानी — trouble/difficulty
+शब्द — word
+भाषा — language
+कहानी — story
+गीत — song
+धुन — tune/melody
+खेल — game/sport
+फ़िल्म — film/movie
+नाच — dance
+संगीत — music
+ख़बर — news
+ख़्याल — thought/idea
+विचार — thought/opinion
+सपना — dream
+याद — memory
+उम्मीद — hope
+डर — fear
+ख़ुशी — happiness
+ग़म — sorrow
+प्यार — love
+मोहब्बत — love/affection
+गुस्सा — anger
+हँसी — laughter
+आँसू — tear
+भावना — feeling/emotion
+इच्छा — wish/desire
+ज़रूरत — need
+मदद — help
+कोशिश — attempt/effort
+मौक़ा — chance/opportunity
+तैयारी — preparation
+फ़ैसला — decision
+योजना — plan
+ख़तरा — danger/risk
+मुसीबत — trouble
+समस्या — problem
+हल — solution
+कारण — reason/cause
+वजह — reason/cause
+नतीजा — result/outcome
+असर — effect/impact
+मक़सद — purpose/aim
+मतलब — meaning/purpose
+अर्थ — meaning
+तरीक़ा — method/way
+हालत — condition/state
+हालात — circumstances
+स्थिति — situation
+घटना — event/incident
+हिस्सा — part/share
+भाग — part/section
+तादाद — quantity
+संख्या — number/figure
+गिनती — counting
+क़िस्म — type/kind
+प्रकार — type/kind
+समूह — group
+टुकड़ा — piece
+जोड़ा — pair/couple
+शुरू — beginning/start
+शुरुआत — beginning
+अंत — end
+ख़त्म — finished/over
+बीच — middle
+किनारा — edge/side
+कोना — corner
+सतह — surface
+गहराई — depth
+ऊँचाई — height
+लंबाई — length
+चौड़ाई — width
+दूरी — distance
+वज़न — weight
+आकार — shape/size
+रूप — form/appearance
+चेहरा — face
+उँगली — finger
+घुटना — knee
+कंधा — shoulder
+पीठ — back
+हड्डी — bone
+चमड़ी — skin
+जीभ — tongue
+होंठ — lip
+माथा — forehead
+दिमाग़ — brain/mind
+जान — life/soul/dear
+आत्मा — soul/spirit
+भगवान — God
+ईश्वर — God
+धर्म — religion/duty
+पूजा — worship/prayer
+त्योहार — festival
+ख़ुदा — God
+दुआ — prayer/blessing
+सच्चाई — truth/honesty
+झूठ — lie
+ग़लती — mistake
+भूल — mistake/lapse
+सज़ा — punishment
+इनाम — reward/prize
+हक़ — right/due
+अधिकार — right/authority
+क़ानून — law
+नियम — rule
+इज़्ज़त — honor/respect
+शर्म — shame/embarrassment
+हिम्मत — courage
+ताज्जुब — surprise
+ख़्वाब — dream
+हक़ीक़त — reality
+कल्पना — imagination
+वाक़ई — really/indeed
+ग़ौर — attention/careful thought
+ध्यान — attention/focus
+समझ — understanding
+ज्ञान — knowledge
+जानकारी — information
+पता — address/knowledge
+लाना — to bring
+ले जाना — to take away
+निकलना — to come out/leave
+निकालना — to take out/remove
+पहुँचना — to arrive/reach
+पहुँचाना — to deliver
+लौटना — to return
+रुकना — to stop
+रोकना — to stop/prevent
+गिरना — to fall
+गिराना — to drop/knock down
+चढ़ना — to climb/get on
+उतरना — to descend/get off
+दौड़ना — to run
+कूदना — to jump
+तैरना — to swim
+उड़ना — to fly
+खोलना — to open
+बंद करना — to close
+तोड़ना — to break
+टूटना — to break/be broken
+जोड़ना — to join/add
+बाँटना — to distribute/divide
+भरना — to fill
+खाली करना — to empty
+धोना — to wash
+साफ़ करना — to clean
+पकाना — to cook
+काटना — to cut
+ख़रीदना — to buy
+बेचना — to sell
+चुकाना — to pay off
+कमाना — to earn
+ख़र्च करना — to spend
+गिनना — to count
+नापना — to measure
+बदलना — to change
+सुधारना — to improve/correct
+बिगड़ना — to worsen/spoil
+बढ़ना — to increase/grow
+बढ़ाना — to increase/extend
+कम होना — to decrease
+बचना — to survive/be saved
+बचाना — to save/protect
+मरना — to die
+मारना — to hit/kill
+जीना — to live
+जीतना — to win
+हारना — to lose
+लड़ना — to fight
+डरना — to be afraid
+रोना — to cry
+हँसना — to laugh
+मुस्कुराना — to smile
+ख़ुश होना — to be happy
+गाना — to sing
+नाचना — to dance
+बजाना — to play an instrument
+खेलना — to play
+घूमना — to roam/travel
+मिलाना — to mix/match
+छूना — to touch
+पकड़ना — to catch/hold
+छोड़ना — to leave/release
+फेंकना — to throw
+उठाना — to lift/pick up
+दिखाना — to show
+दिखना — to appear/be visible
+छिपाना — to hide
+छिपना — to hide/be hidden
+ढूँढना — to search/look for
+खोजना — to search/discover
+खोना — to lose
+भूलना — to forget
+याद करना — to remember
+याद आना — to come to mind
+सीखना — to learn
+सिखाना — to teach
+पढ़ाना — to teach
+समझाना — to explain
+बताना — to tell/inform
+पूछना — to ask
+जवाब देना — to answer
+बुलाना — to call/invite
+चिल्लाना — to shout
+बातचीत करना — to converse
+माँगना — to ask for/demand
+शुरू करना — to start
+ख़त्म करना — to finish
+रुक जाना — to stop
+कोशिश करना — to try
+इस्तेमाल करना — to use
+काम करना — to work
+मदद करना — to help
+तैयार करना — to prepare
+ठीक करना — to fix/correct
+साबित करना — to prove
+तय करना — to decide
+सोच — thinking/mindset
+पढ़ाई — studies
+शिक्षा — education
+कक्षा — class
+पाठ — lesson
+परीक्षा — exam
+डिग्री — degree
+कॉलेज — college
+विश्वविद्यालय — university
+नौकरी — job
+कारोबार — business
+व्यापार — trade/business
+कंपनी — company
+बैंक — bank
+क़ीमत — price/cost
+दाम — price
+ख़र्च — expense
+फ़ायदा — benefit/profit
+नुक़सान — loss/harm
+कमाई — earnings/income
+बचत — savings
+क़र्ज़ — debt/loan
+वस्तु — object/item
+उत्पाद — product
+ग्राहक — customer
+सेवा — service
+कीमती — valuable
+मुफ़्त — free
+ग़रीब — poor
+अमीर — rich
+दौलत — wealth
+ग़रीबी — poverty
+भीड़ — crowd
+आबादी — population
+ताक़तवर — powerful
+कमज़ोर — weak
+मज़बूत — strong
+नरम — soft
+सख़्त — hard/strict
+गीला — wet
+सूखा — dry
+चिकना — smooth/greasy
+खुरदरा — rough
+तीखा — spicy/sharp
+फीका — bland/dull
+खट्टा — sour
+नमकीन — salty
+गहरा — deep
+उथला — shallow
+सीधा — straight/direct
+टेढ़ा — crooked
+गोल — round
+मोड़ — turn/bend
+ख़ूबसूरत — beautiful
+बदसूरत — ugly
+प्यारा — lovely/cute
+अजीब — strange
+अनोखा — unique
+मशहूर — famous
+महत्वपूर्ण — important
+ख़तरनाक — dangerous
+सुरक्षित — safe
+मुमकिन — possible
+नामुमकिन — impossible
+असली — real/genuine
+नक़ली — fake
+ख़ालिस — pure
+साधारण — ordinary
+ख़ुशक़िस्मत — lucky
+बदक़िस्मत — unlucky
+क़िस्मत — luck/fate
+भाग्य — fate/fortune
+अवसर — opportunity
+हादसा — accident
+दुर्घटना — accident
+आफ़त — disaster
+संकट — crisis
+लड़ाई — fight/battle/quarrel
+जंग — war
+युद्ध — war
+शांति — peace
+हथियार — weapon
+फ़ौज — army
+सेना — military
+सुरक्षा — security
+रक्षा — defense
+राज्य — state
+राजनीति — politics
+चुनाव — election/choice
+वोट — vote
+नागरिक — citizen
+मंत्री — minister
+प्रधानमंत्री — prime minister
+राष्ट्रपति — president
+अदालत — court
+न्याय — justice
+अपराध — crime
+जेल — prison
+चोर — thief
+चोरी — theft
+क़ैदी — prisoner
+गवाह — witness
+सबूत — evidence
+इल्ज़ाम — accusation/blame
+झगड़ा — quarrel/dispute
+समझौता — agreement/compromise
+वादा — promise
+शर्त — condition
+ज़िम्मेदारी — responsibility
+फ़र्ज़ — duty
+कर्तव्य — duty
+हिसाब — account/calculation
+जोड़ — sum/total
+औसत — average
+माप — measurement
+तराज़ू — scale
+दर्जा — rank/grade
+तापमान — temperature
+गति — speed/motion
+रफ़्तार — speed/pace
+दिशा — direction
+पूरब — east
+पश्चिम — west
+उत्तर — north/answer
+दक्षिण — south
+सीमा — border/limit
+इलाक़ा — area/region
+क्षेत्र — field/region
+प्रदेश — province/region
+राजधानी — capital city
+आबोहवा — climate
+प्रकृति — nature
+पर्यावरण — environment
+प्रदूषण — pollution
+बाढ़ — flood
+भूकंप — earthquake
+तूफ़ान — storm
+बर्फ़ — snow/ice
+बादल — cloud
+बूँद — drop
+लहर — wave
+किरण — ray/beam
+छाया — shadow
+परछाई — shadow/reflection
+धुआँ — smoke
+राख — ash
+धूल — dust
+कीड़ा — insect/worm
+साँप — snake
+शेर — lion/tiger
+हाथी — elephant
+बंदर — monkey
+चूहा — mouse/rat
+मुर्ग़ी — hen/chicken
+बकरी — goat
+भैंस — buffalo
+पूँछ — tail
+पंख — wing/feather
+सींग — horn
+घास — grass
+जड़ — root
+बीज — seed
+फ़सल — crop/harvest
+अनाज — grain/cereal
+गेहूँ — wheat
+राय — opinion/advice
+सलाह — advice
+सुझाव — suggestion
+शिकायत — complaint
+तारीफ़ — praise/compliment
+माफ़ी — apology/forgiveness
+शुक्रिया — thanks
+बधाई — congratulations
+स्वागत — welcome
+विदा — farewell
+मुलाक़ात — meeting/encounter
+भेंट — gift/meeting
+तोहफ़ा — gift/present
+दावत — invitation/feast
+जश्न — celebration
+रिवाज — custom/tradition
+परंपरा — tradition
+संस्कृति — culture
+सभ्यता — civilization
+इतिहास — history
+ज़माना — era/times
+सदी — century
+पीढ़ी — generation
+भविष्य — future
+भूतकाल — past
+वर्तमान — present/current
+तरक़्क़ी — progress
+विकास — development
+बदलाव — change
+सुधार — improvement/reform
+खोज — discovery/search
+आविष्कार — invention
+विज्ञान — science
+तकनीक — technology
+मशीन — machine
+औज़ार — tool
+यंत्र — device/machine
+बल्ब — light bulb
+इंजन — engine
+पहिया — wheel
+लोहा — iron
+चाँदी — silver
+ताँबा — copper
+धातु — metal
+लकड़ी — wood
+काँच — glass
+प्लास्टिक — plastic
+रबड़ — rubber
+रेत — sand
+ईंट — brick
+सीमेंट — cement
+गैस — gas
+भाप — steam
+ऊर्जा — energy
+शक्ति — power/energy
+जलाना — to burn/light
+बुझाना — to extinguish
+जलना — to burn
+पिघलना — to melt
+जमना — to freeze
+सड़ना — to rot
+उगना — to grow/sprout
+उगाना — to cultivate
+बोना — to sow
+खोदना — to dig
+बनना — to become
+बिगाड़ना — to ruin
+सजाना — to decorate
+लगाना — to apply/attach/plant
+हटाना — to remove
+हटना — to move aside
+खींचना — to pull
+दबाना — to press
+दबना — to be pressed
+मोड़ना — to bend/fold
+मुड़ना — to turn
+लपेटना — to wrap
+बाँधना — to tie
+सुलझाना — to resolve
+सिलना — to sew
+बुनना — to weave/knit
+रंगना — to dye/paint
+पोंछना — to wipe
+झाड़ना — to dust/sweep
+चमकना — to shine
+बहना — to flow
+डूबना — to sink/drown
+बरसना — to rain/pour
+गरजना — to thunder/roar
+अलग — separate/different
+समान — equal/same
+बराबर — equal/level
+विशेष — special
+सामान्य — general/ordinary
+निजी — private/personal
+सार्वजनिक — public
+ज़ाहिर — obvious/evident
+छिपा — hidden
+आख़िरकार — finally
+हालाँकि — although/however

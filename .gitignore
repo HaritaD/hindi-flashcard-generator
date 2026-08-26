@@ -1,0 +1,22 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and generated files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local tooling and OS files
+.DS_Store
+.vscode/
+
+# Temporary files
+*.tmp
+*.log

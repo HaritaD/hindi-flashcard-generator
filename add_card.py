@@ -28,6 +28,7 @@ MODEL = "Hindi gDocs"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TMP_DIR = "/tmp/hindi_anki_images"
 IMAGE_CANDIDATE_POOL = 15
+ENGLISH_CANDIDATE_POOL = 6
 PROMPTS_DIR = os.path.join(SCRIPT_DIR, "prompts")
 PRONUNCIATION_PROMPT_PATH = os.path.join(PROMPTS_DIR, "pheonetic_pronounciation_prompt.md")
 IMAGE_SEARCH_PROMPT_PATH = os.path.join(PROMPTS_DIR, "google_image_search_prompt.md")
@@ -282,7 +283,7 @@ def main():
 
     os.makedirs(TMP_DIR, exist_ok=True)
     search_query = generate_image_search_query(args.hindi, args.english, anthropic_key)
-    print(f"  (image search query: '{search_query}')")
+    print(f"  (Devanagari image search query: '{search_query}')")
     image_urls = search_images(search_query, serp_key, num=IMAGE_CANDIDATE_POOL)
 
     candidate_paths = []
@@ -294,6 +295,23 @@ def main():
             candidate_paths.append(local_path)
         except Exception as e:
             print(f"  (skipped a candidate image: {e})")
+
+    # Also pull in a smaller pool of English-language results, so a few
+    # more literally-obvious photos are available alongside the Devanagari
+    # ones — the Devanagari pool above stays the majority of candidates.
+    if args.english:
+        print(f"  (English image search query: '{args.english}')")
+        english_image_urls = search_images(args.english, serp_key, num=ENGLISH_CANDIDATE_POOL)
+        for i, url in enumerate(english_image_urls):
+            fname = f"english_cand_{i}_{abs(hash(args.hindi))}.jpg"
+            local_path = os.path.join(TMP_DIR, fname)
+            try:
+                download_file(url, local_path)
+                candidate_paths.append(local_path)
+            except Exception as e:
+                print(f"  (skipped an English candidate image: {e})")
+    else:
+        print("  (no English meaning provided, skipping English image search)")
 
     chosen_paths = (
         select_best_images(args.hindi, args.english, candidate_paths, anthropic_key, keep=args.images)
@@ -341,12 +359,16 @@ def main():
         "Example": example,
     }
 
+    tags = ["auto-generated"]
+    if not sound_tag:
+        tags.append("audio-missing")
+
     note = {
         "deckName": args.deck,
         "modelName": MODEL,
         "fields": fields,
         "options": {"allowDuplicate": True},
-        "tags": ["auto-generated"],
+        "tags": tags,
     }
     note_id = anki_request("addNote", note=note)
     print(

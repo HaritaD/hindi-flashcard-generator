@@ -25,6 +25,11 @@ import anthropic
 ANKI_URL = "http://127.0.0.1:8765"
 DECK = "Claude Cards"
 MODEL = "Hindi gDocs"
+# Deck-specific note type overrides (e.g. decks with extra template features
+# not shared by the default "Hindi gDocs" note type).
+DECK_MODEL_OVERRIDES = {
+    "New Claude Deck": "Hindi gDocs (New Claude Deck)",
+}
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TMP_DIR = "/tmp/hindi_anki_images"
 IMAGE_CANDIDATE_POOL = 15
@@ -365,7 +370,7 @@ def main():
 
     note = {
         "deckName": args.deck,
-        "modelName": MODEL,
+        "modelName": DECK_MODEL_OVERRIDES.get(args.deck, MODEL),
         "fields": fields,
         "options": {"allowDuplicate": True},
         "tags": tags,

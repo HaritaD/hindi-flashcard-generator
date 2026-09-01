@@ -1,4 +1,4 @@
-# anki-ai-generated-hindi-flashcards
+# hindi-anki-flashcard-generator
 
 Inspired by *Fluent Forever* by Gabriel Wyner. This tool generates Anki flashcards for Hindi
 vocabulary that pair Devanagari script directly with native audio, real photographs, and personal

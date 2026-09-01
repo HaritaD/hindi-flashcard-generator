@@ -88,7 +88,7 @@ CSS = """.card {
 
 .hindi {
   font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #3B2E33;
   line-height: 1.25;
   font-size: clamp(46px, 15vw, 72px);
@@ -97,15 +97,15 @@ CSS = """.card {
 
 .pronunciation-chip {
   display: inline-block;
-  background: #D0637C;
-  color: #FFF7F8;
-  font-weight: 700;
+  background: transparent;
+  color: #A9808A;
+  font-weight: 500;
   letter-spacing: 0.02em;
-  font-size: clamp(22px, 7vw, 30px);
-  padding: 10px 22px;
-  border-radius: 999px;
-  margin: 4px 0 18px;
-  box-shadow: 0 6px 16px rgba(208, 99, 124, 0.35);
+  font-size: clamp(14px, 4vw, 18px);
+  padding: 0;
+  border-radius: 0;
+  margin: 0 0 18px;
+  box-shadow: none;
 }
 
 .sound-wrap {
@@ -218,12 +218,55 @@ CSS = """.card {
 .night_mode .card, .card.night_mode { background: #1F171A; color: #F3E4E7; }
 .night_mode .stage { background: #2B2024; border-color: #4A2E36; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 .night_mode .hindi { color: #F3E4E7; }
+.night_mode .pronunciation-chip { color: #B98E97; }
 .night_mode .sound-wrap { background: #4A2E36; }
 .night_mode .tag-english { background: #382A2E; color: #F3E4E7; }
 .night_mode .reveal-button { background: #2B2024; color: #EABEC3; border-color: #EABEC3; }
 .night_mode .tag-gender { background: #5A2430; color: #F5DDE0; }
 .night_mode .extra { background: #241A1D; color: #D9B7BE; }
 .night_mode .images img { border-color: #4A2E36; }
+"""
+
+# "Hindi gDocs (New Claude Deck)" is a clone used by decks like "Fluent
+# Forever Hindi Deck" that adds a "write your own example" scratchpad to the
+# back template. It shares the same class names as the base model's CSS, so
+# we push it the same CSS plus its own scratchpad rules (template is left
+# untouched - it has the extra scratchpad markup/script the base lacks).
+CLONE_MODEL = "Hindi gDocs (New Claude Deck)"
+CLONE_CSS_EXTRA = """
+.scratchpad {
+  text-align: left;
+  font-size: 14px;
+  color: #6B4750;
+  background: #EDEEF3;
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-top: 8px;
+}
+.scratchpad-input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  border: 1px solid #F5DDE0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #3B2E33;
+  background: #FFFFFF;
+  resize: vertical;
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
+.scratchpad-input:focus {
+  outline: none;
+  border-color: #D0637C;
+}
+.night_mode .scratchpad { background: #241A1D; color: #D9B7BE; }
+.night_mode .scratchpad-input { background: #2B2024; color: #F3E4E7; border-color: #4A2E36; }
 """
 
 
@@ -244,6 +287,12 @@ def main():
             print(f'Removed unused card template "{name}".')
 
     print(f'Updated card templates + styling for model "{MODEL}".')
+
+    anki_request(
+        "updateModelStyling",
+        model={"name": CLONE_MODEL, "css": CSS + CLONE_CSS_EXTRA},
+    )
+    print(f'Updated styling for model "{CLONE_MODEL}" (template left untouched).')
 
 
 if __name__ == "__main__":

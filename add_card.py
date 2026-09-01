@@ -29,6 +29,7 @@ MODEL = "Hindi gDocs"
 # not shared by the default "Hindi gDocs" note type).
 DECK_MODEL_OVERRIDES = {
     "New Claude Deck": "Hindi gDocs (New Claude Deck)",
+    "Fluent Forever Hindi Deck": "Hindi gDocs (New Claude Deck)",
 }
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TMP_DIR = "/tmp/hindi_anki_images"
@@ -73,7 +74,7 @@ def search_images(search_query, api_key, num=3):
     )
     url = f"https://serpapi.com/search.json?{query}"
     try:
-        with urllib.request.urlopen(url) as resp:
+        with urllib.request.urlopen(url, timeout=20) as resp:
             data = json.load(resp)
     except urllib.error.HTTPError as e:
         body = e.read().decode(errors="replace")
@@ -84,6 +85,12 @@ def search_images(search_query, api_key, num=3):
     return [item["original"] for item in results[:num] if "original" in item]
 
 
+def anthropic_client(api_key):
+    # Explicit timeout/retries: the SDK defaults can leave a stalled request
+    # (and its retries) hanging far longer than is useful in a batch script.
+    return anthropic.Anthropic(api_key=api_key, timeout=60.0, max_retries=2)
+
+
 def load_image_search_prompt_template():
     with open(IMAGE_SEARCH_PROMPT_PATH, encoding="utf-8") as f:
         return f.read()
@@ -92,7 +99,7 @@ def load_image_search_prompt_template():
 def generate_image_search_query(word, english, api_key):
     template = load_image_search_prompt_template()
     prompt = template.replace("{{WORD}}", word).replace("{{ENGLISH}}", english or "(not provided)")
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic_client(api_key)
     response = client.messages.create(
         model="claude-opus-5",
         max_tokens=150,
@@ -133,7 +140,7 @@ def select_best_images(word, english, paths, api_key, keep=5):
     if len(usable) <= keep:
         return usable
 
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic_client(api_key)
     blocks = []
     for i, path in enumerate(usable):
         with open(path, "rb") as f:
@@ -217,7 +224,7 @@ def load_pronunciation_prompt_template():
 def get_pronunciation(word, api_key):
     template = load_pronunciation_prompt_template()
     prompt = template.replace("{{WORD}}", word)
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic_client(api_key)
     response = client.messages.create(
         model="claude-opus-5",
         max_tokens=300,
@@ -242,7 +249,7 @@ def load_example_sentence_prompt_template():
 def generate_example_sentence(word, english, api_key):
     template = load_example_sentence_prompt_template()
     prompt = template.replace("{{WORD}}", word).replace("{{ENGLISH}}", english or "(not provided)")
-    client = anthropic.Anthropic(api_key=api_key)
+    client = anthropic_client(api_key)
     response = client.messages.create(
         model="claude-opus-5",
         max_tokens=200,

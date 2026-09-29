@@ -10,7 +10,7 @@ meaning the way it would learn a first language, rather than through translation
 1. **Map sound → meaning for the most frequently used words in Hindi** (Audio → Image), built from
    four ingredients on every card:
    - **Structure** — the Devanagari script
-   - **Sound** — native audio pronunciation (Forvo)
+   - **Sound** — audio pronunciation (Forvo; gTTS fallback)
    - **Concept** — real photographs standing in for the word's meaning, with no English caption
    - **Personal Connection** — a sandbox text box for the learner's own example sentence
 2. **Develop proper pronunciation habits for learners unfamiliar with IPA** (Devanagari spelling →
@@ -27,7 +27,7 @@ to self-check rather than to read.
 
 1. Devanagari spelling — emphasized
 2. English phonetic pronunciation/spelling — de-emphasized (AI-generated)
-3. Audio pronunciation (Forvo)
+3. Audio pronunciation (Forvo, falling back to gTTS when Forvo has no recording)
 
 ### Back
 
@@ -85,43 +85,65 @@ and raised in the US, 16 or older — conversational in Hindi but not fluent in 
 1. Install [Anki](https://apps.ankiweb.net/) and the
    [AnkiConnect](https://ankiweb.net/shared/info/2055492159) add-on, and leave Anki running while
    generating cards.
-2. `python3 -m venv .venv && .venv/bin/pip install anthropic`
+2. `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
 3. Create a `.env` file in the repo root:
 
    ```
    SERPAPI_KEY=...
-   FORVO_API_KEY=...
+   FORVO_API_KEY=...        # optional; without it all audio comes from gTTS
    ANTHROPIC_API_KEY=...
    ```
 
+There are two note types cards can use, both pushed to Anki via AnkiConnect (versioned in code,
+not hand-edited in the Anki GUI):
+
+```
+.venv/bin/python3 card_styles/style_cards.py         # "Hindi gDocs" - full style, with image gallery
+.venv/bin/python3 card_styles/create_simple_model.py # "Simple Hindi Flashcard" - no image gallery
+```
+
 ## Usage
 
-Push the card template + styling to Anki (run once, or again whenever `style_cards.py` changes):
+### Local web UI
+
+The easiest way to add a card: type a Devanagari word, confirm the AI-suggested spelling
+correction and English meaning, pick a card style, and pick the deck from a dropdown of your
+actual Anki decks.
 
 ```
-.venv/bin/python3 style_cards.py
+.venv/bin/python3 webui/app.py
 ```
+
+then open http://127.0.0.1:5050 (Anki must be running).
+
+### CLI
 
 Add a single card from a Devanagari word:
 
 ```
-.venv/bin/python3 add_card.py --hindi "किताब" --english "book" --gender "F" --deck "Fluent Forever Hindi Deck"
+.venv/bin/python3 main.py --hindi "किताब" --english "book" --gender "F" \
+    --style images --deck "Fluent Forever Hindi Deck"
 ```
 
+- `--style` is `images` (Google-Images gallery, default) or `simple` (no image gallery).
 - `--english` and `--gender` are optional context for the AI generation steps; omit
   `--pronunciation` to have Claude generate it.
 - Cards are skipped automatically if the Devanagari word already exists in the target deck.
-- `words.txt` is the running, frequency-ordered word list (`Devanagari — English gloss`) this
-  project draws from; work through it a batch at a time.
+- `words/frequency_list.txt` is the running, frequency-ordered word list (`Devanagari — English
+  gloss`) this project draws from; work through it a batch at a time.
 - Some decks use a note-type clone with an added personal-example scratchpad field instead of the
-  base `Hindi gDocs` type — see `DECK_MODEL_OVERRIDES` in `add_card.py` before adding a new deck.
+  base `Hindi gDocs` type — see `DECK_MODEL_OVERRIDES` in `card_generator.py` before adding a new
+  deck.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `add_card.py` | Generates and inserts one flashcard: image search + selection, Forvo audio, pronunciation, example sentence |
-| `style_cards.py` | Pushes card template HTML + CSS to Anki (versioned card design) |
+| `card_generator.py` | Core logic: word spell-check + meaning, image search/selection, Forvo/gTTS audio, pronunciation, example sentence, and inserting the Anki note |
+| `main.py` | CLI entry point over `card_generator.py` |
+| `webui/` | Local Flask UI (word entry + spell-check confirmation + style/deck pickers) over `card_generator.py` |
+| `card_styles/style_cards.py` | Pushes the "Hindi gDocs" (with images) card template HTML + CSS to Anki |
+| `card_styles/create_simple_model.py` | Creates/updates the "Simple Hindi Flashcard" (no images) note type |
 | `migrate_to_gdocs.py` | One-off migration of legacy notes into the `Hindi gDocs` note type |
-| `prompts/` | Prompt templates for pronunciation, image search queries, and example sentences |
-| `words.txt` | Source word list (Devanagari — English), frequency-ordered |
+| `prompts/` | Prompt templates for spell-check, pronunciation, image search queries, and example sentences |
+| `words/frequency_list.txt` | Source word list (Devanagari — English), frequency-ordered |

@@ -36,6 +36,11 @@ EXAMPLE_HTML = (
     '{{#Example}}<div class="extra"><span class="extra-label">example</span>{{Example}}</div>{{/Example}}'
 )
 
+MY_EXAMPLE_HTML = (
+    '{{#My Example}}<div class="extra"><span class="extra-label">my example</span>'
+    "{{My Example}}</div>{{/My Example}}"
+)
+
 OTHER_EXTRA_FIELDS_HTML = (
     '{{#Grammar Notes}}<div class="extra"><span class="extra-label">notes</span>{{Grammar Notes}}</div>{{/Grammar Notes}}\n'
     '{{#Related Forms / Synonyms}}<div class="extra"><span class="extra-label">related</span>'
@@ -60,6 +65,7 @@ BACK = f"""<div class="stage stage-reveal">
   <div class="images">{{{{image}}}}</div>
   {{{{#Gender}}}}<div class="tag-row"><span class="tag tag-gender">{{{{Gender}}}}</span></div>{{{{/Gender}}}}
   {EXAMPLE_HTML}
+  {MY_EXAMPLE_HTML}
   {ENGLISH_REVEAL_HTML}
   {OTHER_EXTRA_FIELDS_HTML}
 </div>"""
@@ -270,7 +276,27 @@ CLONE_CSS_EXTRA = """
 """
 
 
+def ensure_field(model_name, field_name, after_field=None):
+    """Add `field_name` to `model_name` (via AnkiConnect's modelFieldAdd) if
+    it doesn't already exist there. No-ops if the model itself isn't found
+    in this Anki collection."""
+    if model_name not in anki_request("modelNames"):
+        print(f'  (skipping "{model_name}" - not found in this Anki collection)')
+        return
+    fields = anki_request("modelFieldNames", modelName=model_name)
+    if field_name in fields:
+        return
+    params = {"modelName": model_name, "fieldName": field_name}
+    if after_field and after_field in fields:
+        params["index"] = fields.index(after_field) + 1
+    anki_request("modelFieldAdd", **params)
+    print(f'  Added field "{field_name}" to model "{model_name}".')
+
+
 def main():
+    ensure_field(MODEL, "My Example", after_field="Example")
+    ensure_field(CLONE_MODEL, "My Example", after_field="Example")
+
     anki_request(
         "updateModelTemplates",
         model={"name": MODEL, "templates": TEMPLATES},
@@ -288,11 +314,14 @@ def main():
 
     print(f'Updated card templates + styling for model "{MODEL}".')
 
-    anki_request(
-        "updateModelStyling",
-        model={"name": CLONE_MODEL, "css": CSS + CLONE_CSS_EXTRA},
-    )
-    print(f'Updated styling for model "{CLONE_MODEL}" (template left untouched).')
+    if CLONE_MODEL in anki_request("modelNames"):
+        anki_request(
+            "updateModelStyling",
+            model={"name": CLONE_MODEL, "css": CSS + CLONE_CSS_EXTRA},
+        )
+        print(f'Updated styling for model "{CLONE_MODEL}" (template left untouched).')
+    else:
+        print(f'  (skipping "{CLONE_MODEL}" styling - not found in this Anki collection)')
 
 
 if __name__ == "__main__":

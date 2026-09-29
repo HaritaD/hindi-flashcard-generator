@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hindi Flashcard Maker</title>
+<style>
+  :root {
+    --bg: #EDEEF3;
+    --card: #FFFFFF;
+    --border: #F5DDE0;
+    --accent-soft: #EABEC3;
+    --accent: #D0637C;
+    --accent-strong: #DD868C;
+    --text: #3B2E33;
+    --text-muted: #6B4750;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 16px 60px;
+  }
+  .wrap { max-width: 480px; margin: 0 auto; }
+  h1 {
+    font-size: 22px;
+    margin: 0 0 4px;
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 28px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 22px 20px;
+    box-shadow: 0 10px 30px rgba(208, 99, 124, 0.12);
+    margin-bottom: 16px;
+  }
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin-bottom: 6px;
+  }
+  input[type="text"], select, textarea {
+    width: 100%;
+    font-size: 18px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+  }
+  #hindi-input {
+    font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
+    font-size: 28px;
+    text-align: center;
+  }
+  #example-input {
+    font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
+    font-size: 16px;
+    resize: vertical;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .row { margin-bottom: 14px; }
+  button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 999px;
+    border: none;
+    padding: 12px 22px;
+  }
+  .btn-primary {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:disabled { opacity: 0.5; cursor: default; }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+  }
+  .style-choices {
+    display: flex;
+    gap: 10px;
+  }
+  .style-btn {
+    flex: 1;
+    background: var(--bg);
+    color: var(--text);
+    border: 2px solid var(--border);
+    padding: 14px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .style-btn small {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .style-btn.selected {
+    border-color: var(--accent);
+    background: var(--border);
+    color: var(--accent);
+  }
+  .word-check {
+    font-size: 15px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-top: 12px;
+  }
+  .word-check.ok { background: #EAF6EE; color: #2C6E3D; }
+  .word-check.warn { background: #FFF6E0; color: #8A6A00; }
+  .word-check.error { background: #FBE6E6; color: #9A2F2F; }
+  .hidden { display: none !important; }
+  .status {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    white-space: pre-line;
+  }
+  .result {
+    font-size: 15px;
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 16px;
+  }
+  .result.added { background: #EAF6EE; color: #2C6E3D; }
+  .result.skipped { background: #FFF6E0; color: #8A6A00; }
+  .result.error { background: #FBE6E6; color: #9A2F2F; }
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--accent-soft);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: -2px;
+    margin-right: 6px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .devanagari-preview {
+    font-family: "Noto Sans Devanagari", "Mangal", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Hindi Flashcard Maker</h1>
+  <p class="subtitle">Type a Devanagari word to add it to Anki</p>
+
+  <!-- Step 1: word entry + spell-check -->
+  <div class="card" id="step-word">
+    <div class="row">
+      <label for="hindi-input">Devanagari word</label>
+      <input type="text" id="hindi-input" placeholder="किताब" autocomplete="off" autofocus>
+    </div>
+    <button class="btn-primary" id="check-btn">Check word</button>
+    <div id="word-check-box"></div>
+  </div>
+
+  <!-- Step 2: confirm meaning + style + deck -->
+  <div class="card hidden" id="step-confirm">
+    <div class="row">
+      <label>Word</label>
+      <div class="devanagari-preview" id="confirmed-word-display"></div>
+    </div>
+    <div class="row">
+      <label for="english-input">English meaning (confirm or edit)</label>
+      <input type="text" id="english-input" placeholder="book">
+    </div>
+    <div class="row">
+      <label for="gender-input">Gender (optional)</label>
+      <select id="gender-input">
+        <option value="">—</option>
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="example-input">Your own example (optional)</label>
+      <textarea id="example-input" rows="2" placeholder="Type the line you just heard, e.g. from a show…"></textarea>
+      <small style="display:block; color: var(--text-muted); margin-top: 4px; font-size: 12px;">
+        Shown on the card alongside an AI-generated example — Claude always makes one too.
+      </small>
+    </div>
+    <div class="row">
+      <label>Card style</label>
+      <div class="style-choices">
+        <div class="style-btn selected" data-style="images">
+          With images
+          <small>Google-Images gallery</small>
+        </div>
+        <div class="style-btn" data-style="simple">
+          Simple
+          <small>no image gallery</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label for="deck-select">Deck</label>
+      <select id="deck-select"><option>Loading decks…</option></select>
+    </div>
+    <button class="btn-secondary" id="back-btn" style="margin-bottom:10px;">&larr; back</button>
+    <button class="btn-primary" id="create-btn">Create card</button>
+    <div class="status hidden" id="create-status"></div>
+    <div class="result hidden" id="create-result"></div>
+  </div>
+</div>
+
+<script>
+const hindiInput = document.getElementById('hindi-input');
+const checkBtn = document.getElementById('check-btn');
+const wordCheckBox = document.getElementById('word-check-box');
+const stepWord = document.getElementById('step-word');
+const stepConfirm = document.getElementById('step-confirm');
+const confirmedWordDisplay = document.getElementById('confirmed-word-display');
+const englishInput = document.getElementById('english-input');
+const genderInput = document.getElementById('gender-input');
+const exampleInput = document.getElementById('example-input');
+const deckSelect = document.getElementById('deck-select');
+const backBtn = document.getElementById('back-btn');
+const createBtn = document.getElementById('create-btn');
+const createStatus = document.getElementById('create-status');
+const createResult = document.getElementById('create-result');
+const styleButtons = document.querySelectorAll('.style-btn');
+
+let selectedStyle = 'images';
+let confirmedWord = '';
+let decksLoaded = false;
+
+styleButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    styleButtons.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedStyle = btn.dataset.style;
+  });
+});
+
+async function loadDecks() {
+  deckSelect.innerHTML = '<option>Loading decks…</option>';
+  try {
+    const resp = await fetch('/api/decks');
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error);
+    deckSelect.innerHTML = '';
+    data.decks.forEach(name => {
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.textContent = name;
+      deckSelect.appendChild(opt);
+    });
+    decksLoaded = true;
+  } catch (e) {
+    deckSelect.innerHTML = `<option value="">(couldn't load decks: ${e.message})</option>`;
+  }
+}
+
+function showWordCheck(kind, html) {
+  wordCheckBox.innerHTML = `<div class="word-check ${kind}">${html}</div>`;
+}
+
+function goToConfirmStep(word, english) {
+  confirmedWord = word;
+  confirmedWordDisplay.textContent = word;
+  englishInput.value = english || '';
+  exampleInput.value = '';
+  genderInput.value = '';
+  createStatus.classList.add('hidden');
+  createResult.classList.add('hidden');
+  stepWord.classList.add('hidden');
+  stepConfirm.classList.remove('hidden');
+  if (!decksLoaded) loadDecks();
+  englishInput.focus();
+}
+
+// Back to the word-entry page with a clean slate, ready for the next card.
+// `flash` (optional) is shown briefly in the word-check box, e.g. to confirm
+// the word that was just added before the box clears on the next check.
+function goToWordStep(flash) {
+  confirmedWord = '';
+  hindiInput.value = '';
+  wordCheckBox.innerHTML = '';
+  if (flash) showWordCheck(flash.kind, flash.html);
+  createStatus.classList.add('hidden');
+  createResult.classList.add('hidden');
+  stepConfirm.classList.add('hidden');
+  stepWord.classList.remove('hidden');
+  hindiInput.focus();
+}
+
+checkBtn.addEventListener('click', async () => {
+  const word = hindiInput.value.trim();
+  wordCheckBox.innerHTML = '';
+  if (!word) {
+    showWordCheck('error', 'Please enter a word.');
+    return;
+  }
+  checkBtn.disabled = true;
+  checkBtn.textContent = 'Checking…';
+  try {
+    const resp = await fetch('/api/check-word', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hindi: word }),
+    });
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error);
+
+    if (!data.valid_script) {
+      showWordCheck('error', data.script_error);
+      return;
+    }
+    if (!data.recognized) {
+      showWordCheck(
+        'warn',
+        `Claude didn't recognize <span class="devanagari-preview">${data.input}</span> as a real Hindi word. ` +
+        `You can still use it as-is.<br><br>` +
+        `<button class="btn-secondary" id="use-anyway-btn">Use it anyway</button>`
+      );
+      document.getElementById('use-anyway-btn').addEventListener('click', () => {
+        goToConfirmStep(data.input, '');
+      });
+      return;
+    }
+    if (data.changed) {
+      showWordCheck(
+        'warn',
+        `Did you mean <span class="devanagari-preview">${data.corrected}</span>? (${data.note || 'spelling corrected'})<br><br>` +
+        `<button class="btn-secondary" id="accept-fix-btn">Use "${data.corrected}"</button> ` +
+        `<button class="btn-secondary" id="keep-orig-btn">Keep "${data.input}"</button>`
+      );
+      document.getElementById('accept-fix-btn').addEventListener('click', () => {
+        goToConfirmStep(data.corrected, data.english);
+      });
+      document.getElementById('keep-orig-btn').addEventListener('click', () => {
+        goToConfirmStep(data.input, data.english);
+      });
+      return;
+    }
+    showWordCheck('ok', `Looks good — meaning: <strong>${data.english || '(unknown)'}</strong>`);
+    goToConfirmStep(data.corrected, data.english);
+  } catch (e) {
+    showWordCheck('error', `Couldn't check word: ${e.message}`);
+  } finally {
+    checkBtn.disabled = false;
+    checkBtn.textContent = 'Check word';
+  }
+});
+
+hindiInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') checkBtn.click();
+});
+
+backBtn.addEventListener('click', () => goToWordStep());
+
+createBtn.addEventListener('click', async () => {
+  const deck = deckSelect.value;
+  if (!deck) {
+    createStatus.classList.remove('hidden');
+    createStatus.textContent = 'Please choose a deck.';
+    return;
+  }
+  createBtn.disabled = true;
+  createResult.classList.add('hidden');
+  createStatus.classList.remove('hidden');
+  createStatus.innerHTML = '<span class="spinner"></span>Creating card… this can take up to a minute (image search, audio, AI generation).';
+
+  try {
+    const resp = await fetch('/api/create-card', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        hindi: confirmedWord,
+        english: englishInput.value.trim(),
+        gender: genderInput.value,
+        my_example: exampleInput.value.trim(),
+        deck,
+        style: selectedStyle,
+      }),
+    });
+    const data = await resp.json();
+    createStatus.classList.add('hidden');
+    createResult.classList.remove('hidden');
+    if (data.error) {
+      createResult.className = 'result error';
+      createResult.textContent = data.error;
+    } else {
+      createResult.className = `result ${data.status}`;
+      createResult.textContent = data.message;
+      // Card is in Anki - automatically return to a fresh entry page after a
+      // short pause so the confirmation is still readable, carrying the
+      // result over as a flash message.
+      const flashKind = data.status === 'added' ? 'ok' : 'warn';
+      setTimeout(() => {
+        goToWordStep({ kind: flashKind, html: data.message });
+      }, 1500);
+    }
+  } catch (e) {
+    createStatus.classList.add('hidden');
+    createResult.classList.remove('hidden');
+    createResult.className = 'result error';
+    createResult.textContent = `Failed to create card: ${e.message}`;
+  } finally {
+    createBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
